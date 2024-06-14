@@ -10,7 +10,7 @@
         Passionated about technology 💻, padel lover 🎾, hikker ⛰️ and always learning new things
         🤓.
       </div>
-      <a href="/cv.pdf" target="_blank" rel="noopener noreferrer"> Download CV </a>
+      <a href="/src/assets/cv.pdf" target="_blank" rel="noopener noreferrer"> Download CV </a>
     </div>
     <div class="avatar">
       <div class="card">
@@ -177,6 +177,28 @@ section {
 @keyframes gradientAnimation {
   to {
     background-position: 200% center;
+  }
+}
+
+@media screen and (min-width: 309px) and (max-width: 768px) {
+  &.home {
+    & .content {
+      & .name {
+        font-size: 5em;
+      }
+      & a {
+        margin: auto;
+        font-size: medium;
+      }
+    }
+
+    & .avatar {
+      & .card {
+        & img {
+          object-position: -110px 0px !important;
+        }
+      }
+    }
   }
 }
 </style>

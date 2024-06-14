@@ -67,7 +67,7 @@ onMounted(() => {
         color: #eee;
         text-decoration: none;
         cursor: pointer;
-        width: max-content;
+        width: auto;
         border-bottom: 1px solid #fff;
       }
     }
