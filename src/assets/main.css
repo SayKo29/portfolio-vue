@@ -1,35 +1,42 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+/*  change scrollbar style */
+::-webkit-scrollbar {
+  width: 3px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+::-webkit-scrollbar-thumb {
+  background: #7a43b6;
+  border-radius: 10px;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+body {
+  margin: 0;
+  background-color: #010824;
+  color: #eee;
+  font-size: 15px;
+  min-height: 100vh;
+  background-image: repeating-linear-gradient(to right, transparent 0 49px, #eee1 49px 50px),
+    repeating-linear-gradient(to bottom, transparent 0 49px, #eee1 49px 50px);
+  &::before {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    content: '';
+    background-image: linear-gradient(to right, #d02e23, #7a43b6);
+    z-index: -1;
+    top: -200px;
+    left: calc(50% - 200px);
+    border-radius: 50% 50% 0 0;
+    pointer-events: none;
+    filter: blur(250px);
   }
 }

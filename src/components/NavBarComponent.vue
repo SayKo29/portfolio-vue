@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useNavBarStore } from '../store/navbarStore'
+import { useNavBarStore } from '../stores/navbarStore'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
@@ -99,14 +99,12 @@ header {
       border-bottom: 2px solid transparent;
       font-size: 1.2em;
       &.active {
-        color: #e945e3;
+        color: var(--pink-color);
         text-shadow: 0 0 5px #7a43b6;
       }
 
-      /* when hover make a border botom animation from left to right */
-
       &:hover:not(.active) {
-        border-bottom: 1.5px solid #e945e3;
+        border-bottom: 1.5px solid var(--pink-color);
         transition: 0.5s;
       }
     }
