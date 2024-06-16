@@ -46,10 +46,7 @@
 import { ref, onMounted } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faPersonCircleQuestion, faCode } from '@fortawesome/free-solid-svg-icons'
-// import useCustomHook from './useCustomHook'
-
-const refTab = ref(null)
-const refDivs = ref([])
+import AnimationDiv from '@/components/AnimationDiv.js'
 
 const listProjects = ref([
   {
@@ -75,6 +72,8 @@ const listProjects = ref([
 const openProject = (project) => {
   window.open(project.link, '_blank')
 }
+const reftab = ref(null)
+const refDivs = ref([])
 
 const addToRefs = (el) => {
   if (el && !refDivs.value.includes(el)) {
@@ -83,7 +82,7 @@ const addToRefs = (el) => {
 }
 
 onMounted(() => {
-  //   useCustomHook(refTab, refDivs)
+  AnimationDiv(reftab, refDivs)
 })
 </script>
 
@@ -171,6 +170,45 @@ onMounted(() => {
           grid-column-start: 1;
           grid-row-start: 1;
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  section {
+    padding: 20px;
+  }
+  .projects {
+    & .title {
+      padding-bottom: 6px;
+      font-size: 3em;
+      margin-top: 50px;
+      text-align: left;
+    }
+    .des {
+      margin: unset;
+    }
+    & .list {
+      & .item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 80px;
+        & .images {
+          & img {
+            height: 245px;
+          }
+        }
+        & .content {
+          padding-bottom: 6px;
+          & h3 {
+            font-size: 2em;
+            padding-bottom: 6px;
+          }
+        }
+      }
+      & .item:nth-child(2n) {
+        padding-bottom: 10px;
       }
     }
   }

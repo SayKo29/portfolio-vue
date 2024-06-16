@@ -57,7 +57,7 @@ const skills = ref([
       {
         name: 'Astro js',
         des: 'Made a personal web project with scrapping to get the cheapest price for padel articles',
-        icon: '/astrojs.svg'
+        icon: '/src/assets/astrojs.svg'
       }
     ]
   },
@@ -194,6 +194,32 @@ onMounted(() => {
       }
       h3 {
         font-size: larger;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    padding: 20px;
+  }
+  .skills {
+    & .title {
+      padding-bottom: 6px;
+      font-size: 3em;
+      margin-top: 50px;
+      text-align: left;
+    }
+    & .list {
+      grid-template-columns: repeat(auto-fill, 200px);
+      & .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & .des {
+          text-wrap: pretty;
+        }
       }
     }
   }

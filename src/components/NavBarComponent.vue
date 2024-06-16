@@ -27,12 +27,12 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const listNav = ['home', 'skills', 'projects', 'contact']
 // console.log()
-// let statusNav = ref()
+let statusNav = ref()
 const navbarStore = useNavBarStore()
 const activeTab = computed(() => navbarStore.activeTab)
 
 const changeTabActive = (value) => {
-  navbarStore.mutations.changeTabActive(value)
+  navbarStore.changeTabActive(value)
 }
 
 const changeTab = (value) => {
@@ -106,6 +106,40 @@ header {
       &:hover:not(.active) {
         border-bottom: 1.5px solid var(--pink-color);
         transition: 0.5s;
+      }
+    }
+  }
+}
+.icon-bar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    & .icon-bar {
+      display: block;
+    }
+    nav {
+      position: fixed;
+      background-color: #010824;
+      width: 80%;
+      height: 100vh;
+      inset: 0 auto 0 0;
+      color: #010824;
+      flex-direction: column;
+      padding: 50px;
+      box-sizing: border-box;
+      left: -100%;
+      opacity: 0;
+      transition: 0.5s;
+      &.active {
+        left: 0;
+        opacity: 1;
+      }
+      & span {
+        font-size: 1.3em;
+        margin: 20px 0;
+        color: #eee;
       }
     }
   }

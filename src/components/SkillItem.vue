@@ -11,6 +11,39 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 const props = defineProps(['item'])
-console.log(props.item)
 </script>
-<style lang=""></style>
+<style scoped>
+.item {
+  svg {
+    font-size: 30px;
+    background-color: #eee2;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .image-container {
+    width: 50px;
+    height: 50px;
+    background-color: #eee2;
+    border-radius: 10px;
+    .icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* force icon to be white */
+      filter: brightness(0) invert(1);
+    }
+  }
+  & .des {
+    text-align: left;
+    width: 100%;
+    font-size: medium;
+    color: #eee9;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: larger;
+  }
+}
+</style>

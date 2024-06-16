@@ -23,14 +23,23 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import AnimationDiv from '@/components/AnimationDiv.js'
+
+const reftab = ref(null)
+const refDivs = ref([])
+
+const addToRefs = (el) => {
+  if (el && !refDivs.value.includes(el)) {
+    refDivs.value.push(el)
+  }
+}
 
 onMounted(() => {
-  //   useCustomHook(refTab)
+  AnimationDiv(reftab, refDivs)
 })
 </script>
 
 <style scoped>
-/* Agrega aquí tus estilos CSS */
 section {
   width: min(1300px, 100%);
   margin: auto;
@@ -46,8 +55,6 @@ section {
     align-items: center;
 
     & .content {
-      font-family: 'MuseoModerno', system-ui;
-
       & .name {
         font-size: 7em;
         font-weight: bold;
@@ -147,6 +154,7 @@ section {
             0 0
           );
           aspect-ratio: 2/1;
+          object-position: -144px -29px;
         }
         & .background {
           position: absolute;
@@ -179,9 +187,29 @@ section {
     background-position: 200% center;
   }
 }
+@media screen and (min-width: 770px) {
+  .home {
+    & .content {
+      & .name {
+        font-size: 5em;
+      }
+      & a {
+        margin: auto;
+        font-size: medium;
+      }
+    }
 
+    & .avatar {
+      & .card {
+        & img {
+          object-position: -30px 0px;
+        }
+      }
+    }
+  }
+}
 @media screen and (min-width: 309px) and (max-width: 768px) {
-  &.home {
+  .home {
     & .content {
       & .name {
         font-size: 5em;
@@ -196,6 +224,35 @@ section {
       & .card {
         & img {
           object-position: -110px 0px !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 930px) {
+  section {
+    padding: 20px;
+    &.home {
+      grid-template-columns: 1fr;
+      padding-top: 70px;
+      & .content {
+        & .name {
+          font-size: 3em;
+        }
+        & a {
+          margin: auto;
+          font-size: medium;
+        }
+      }
+      & .avatar {
+        grid-row-start: 1;
+        text-align: left;
+
+        & .card {
+          & img {
+            object-position: -144px -29px;
+          }
         }
       }
     }

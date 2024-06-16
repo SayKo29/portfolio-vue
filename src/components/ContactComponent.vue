@@ -40,7 +40,7 @@ onMounted(() => {
 
 <style scoped>
 .contact {
-  padding-bottom: 220px;
+  margin-bottom: 220px;
   & .title {
     font-size: 5vw;
     text-align: center;
