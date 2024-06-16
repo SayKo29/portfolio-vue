@@ -8,7 +8,7 @@ export const useNavBarStore = defineStore('navbar', {
     // could also be defined as
     // state: () => ({ count: 0 })
     actions: {
-        setActiveTab (tab) {
+        changeTabActive (tab) {
             this.activeTab = tab
         },
     },

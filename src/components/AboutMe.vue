@@ -53,6 +53,7 @@ section {
     gap: 50px;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 120px;
 
     & .content {
       & .name {
@@ -73,7 +74,7 @@ section {
       & .des {
         color: #eee9;
         margin: 30px 0;
-        border-left: 0.35em solid #e945e3;
+        border-left: 0.35em solid var(--pink-color);
         padding-left: 2em;
         font-size: large;
       }
