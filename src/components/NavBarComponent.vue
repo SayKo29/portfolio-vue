@@ -26,8 +26,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const listNav = ['home', 'skills', 'projects', 'contact']
-// console.log()
-let statusNav = ref()
+let statusNav = ref(false)
 const navbarStore = useNavBarStore()
 const activeTab = computed(() => navbarStore.activeTab)
 
@@ -38,6 +37,20 @@ const changeTabActive = (value) => {
 const changeTab = (value) => {
   changeTabActive(value)
   toggleNav()
+  scrollToSection(value)
+}
+
+const scrollToSection = (className) => {
+  const section = document.querySelector(`.${className}`)
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' })
+    const separation = 80 // Adjust the separation value as needed
+    const offsetPosition = section.offsetTop - separation
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
+  }
 }
 
 const toggleNav = (event) => {
@@ -60,13 +73,42 @@ const clickOutside = (e) => {
   }
 }
 
+const sections = ref([])
+
 onMounted(() => {
   document.addEventListener('click', clickOutside)
+  document.addEventListener('scroll', handleScroll)
+
+  sections.value = listNav.map((section) => document.querySelector(`.${section}`))
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const sectionClass = entry.target.className
+        changeTabActive(sectionClass)
+      }
+    })
+  }, observerOptions)
+
+  sections.value.forEach((section) => {
+    observer.observe(section)
+  })
 })
 
 onUnmounted(() => {
   document.removeEventListener('click', clickOutside)
+  document.removeEventListener('scroll', handleScroll)
 })
+
+const handleScroll = () => {
+  statusNav.value = undefined
+}
 </script>
 
 <style scoped>
@@ -121,11 +163,11 @@ header {
     }
     nav {
       position: fixed;
-      background-color: #010824;
+      background-color: var(--nav-mobile-color);
       width: 80%;
       height: 100vh;
       inset: 0 auto 0 0;
-      color: #010824;
+      color: var(--nav-mobile-color);
       flex-direction: column;
       padding: 50px;
       box-sizing: border-box;
@@ -140,6 +182,7 @@ header {
         font-size: 1.3em;
         margin: 20px 0;
         color: #eee;
+        width: fit-content;
       }
     }
   }

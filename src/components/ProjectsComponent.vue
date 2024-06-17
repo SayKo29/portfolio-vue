@@ -43,10 +43,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faPersonCircleQuestion, faCode } from '@fortawesome/free-solid-svg-icons'
-import AnimationDiv from '@/components/AnimationDiv.js'
 
 const listProjects = ref([
   {
@@ -72,18 +71,6 @@ const listProjects = ref([
 const openProject = (project) => {
   window.open(project.link, '_blank')
 }
-const reftab = ref(null)
-const refDivs = ref([])
-
-const addToRefs = (el) => {
-  if (el && !refDivs.value.includes(el)) {
-    refDivs.value.push(el)
-  }
-}
-
-onMounted(() => {
-  AnimationDiv(reftab, refDivs)
-})
 </script>
 
 <style scoped>

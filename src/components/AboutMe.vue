@@ -21,23 +21,7 @@
   </section>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue'
-import AnimationDiv from '@/components/AnimationDiv.js'
-
-const reftab = ref(null)
-const refDivs = ref([])
-
-const addToRefs = (el) => {
-  if (el && !refDivs.value.includes(el)) {
-    refDivs.value.push(el)
-  }
-}
-
-onMounted(() => {
-  AnimationDiv(reftab, refDivs)
-})
-</script>
+<script setup></script>
 
 <style scoped>
 section {
