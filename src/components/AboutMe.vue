@@ -46,7 +46,13 @@ section {
         line-height: 1em;
 
         & span {
-          background-image: linear-gradient(to right, #7be728, #f3265f, #7f40ac, #7be728);
+          background-image: linear-gradient(
+            to right,
+            var(--green-color),
+            var(--pink-color),
+            #7f40ac,
+            var(--green-color)
+          );
           background-size: 200% auto;
           animation: gradientAnimation 5s linear infinite;
           -webkit-text-fill-color: transparent;
@@ -195,6 +201,7 @@ section {
 }
 @media screen and (min-width: 309px) and (max-width: 768px) {
   .home {
+    gap: 0px;
     & .content {
       & .name {
         font-size: 5em;
@@ -221,6 +228,7 @@ section {
     &.home {
       grid-template-columns: 1fr;
       padding-top: 70px;
+      gap: 0px;
       & .content {
         & .name {
           font-size: 3em;
