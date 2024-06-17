@@ -8,7 +8,9 @@
     <div class="list" ref="addToRefs">
       <div class="item">
         <font-awesome-icon :icon="faLinkedin" size="1x" :style="{ paddingRight: '5px' }" />
-        <a href="https://www.linkedin.com/in/aaron-sarmiento/" class="contact"> Aaron Sarmiento </a>
+        <a href="https://www.linkedin.com/in/aaron-sarmiento/" target="_blank" class="contact">
+          Aaron Sarmiento
+        </a>
       </div>
       <div class="item">
         <font-awesome-icon :icon="faEnvelope" size="1x" :style="{ paddingRight: '5px' }" />
