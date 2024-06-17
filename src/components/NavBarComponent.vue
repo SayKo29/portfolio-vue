@@ -44,7 +44,7 @@ const scrollToSection = (className) => {
   const section = document.querySelector(`.${className}`)
   if (section) {
     section.scrollIntoView({ behavior: 'smooth' })
-    const separation = 80 // Adjust the separation value as needed
+    const separation = 80
     const offsetPosition = section.offsetTop - separation
     window.scrollTo({
       top: offsetPosition,
