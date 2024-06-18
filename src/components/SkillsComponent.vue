@@ -1,7 +1,7 @@
 <template>
   <section class="skills" ref="reftab">
     <div v-for="(category, categoryIndex) in skills" :key="categoryIndex">
-      <div :class="`title${category.type === 'soft' ? '-soft' : ''}`" ref="addToRefs">
+      <div :class="`title`" ref="addToRefs">
         {{ category.type === 'hard' ? 'Hard-Skills' : 'Soft-Skills' }}
       </div>
       <div class="list" ref="addToRefs">
@@ -212,6 +212,7 @@ onMounted(() => {
     }
     & .list {
       grid-template-columns: repeat(auto-fill, 200px);
+      justify-content: center;
       & .item {
         display: flex;
         flex-direction: column;

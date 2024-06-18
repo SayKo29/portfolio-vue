@@ -75,4 +75,35 @@ onMounted(() => {
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .contact {
+    padding: 20px;
+    .title {
+      padding-bottom: 6px;
+      font-size: 3em;
+      margin-top: 50px;
+      text-align: left;
+    }
+    .des {
+      padding-bottom: 20px;
+      font-size: medium;
+      text-align: left;
+    }
+    .list {
+      display: flex;
+      flex-direction: column;
+      text-align-last: left;
+      .item,
+      .item2 {
+        margin-top: 20px;
+        a {
+          font-size: medium;
+          width: fit-content;
+          display: contents;
+        }
+      }
+    }
+  }
+}
 </style>
